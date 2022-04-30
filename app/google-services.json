@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "983180429446",
+    "firebase_url": "https://cmsc436-block-tapping-default-rtdb.firebaseio.com",
+    "project_id": "cmsc436-block-tapping",
+    "storage_bucket": "cmsc436-block-tapping.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983180429446:android:0ff039f16edcae10d9e907",
+        "android_client_info": {
+          "package_name": "com.example.corsiblocktapping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "983180429446-p07o74ftr69v1q45o3rum6m12lebt8gf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjdw9bGL-7ApoEC2K_MVg5W_cJENSBAc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "983180429446-p07o74ftr69v1q45o3rum6m12lebt8gf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

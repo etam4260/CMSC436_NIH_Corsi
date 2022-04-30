@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">block-tapping-leaderboard-and-sign-in</string>
+    <string name="corsi_block_tapping_string">Corsi Block Tapping</string>
+    <string name="sign_in_string">Sign In</string>
+    <string name="sign_up_string">Sign Up</string>
+    <string name="begin_task_string">Begin Task</string>
+    <string name="log_in_prompt_string">Log in to your account</string>
+    <string name="sign_out_string">Sign Out</string>
+</resources>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".Leaderboard">
+
+    <TextView
+        android:id="@+id/leaderboard_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textSize="32sp"
+        android:text="Leaderboard" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+    <TextView
+        android:id="@+id/top1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1. "/>
+
+    <TextView
+        android:id="@+id/top2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2. "/>
+
+    <TextView
+        android:id="@+id/top3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3. "/>
+
+    <TextView
+        android:id="@+id/top4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="4. "/>
+
+    <TextView
+        android:id="@+id/top5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="5. "/>
+
+    <TextView
+        android:id="@+id/top6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="6. "/>
+
+    <TextView
+        android:id="@+id/top7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="7. "/>
+
+    <TextView
+        android:id="@+id/top8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="8. "/>
+
+    <TextView
+        android:id="@+id/top9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="9. "/>
+
+    <TextView
+        android:id="@+id/top10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="10. "/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+    // todo center this
+    <TextView
+        android:id="@+id/your_score_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Score"/>
+
+    <TextView
+        android:id="@+id/last_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="temp val 123"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+    <TextView
+        android:id="@+id/your_high_score_subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your High Score"/>
+
+    <TextView
+        android:id="@+id/highest_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="temp 123"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+    </LinearLayout>
+
+
+    </LinearLayout>
