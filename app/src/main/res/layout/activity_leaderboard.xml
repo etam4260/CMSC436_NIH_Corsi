@@ -203,18 +203,34 @@
         android:gravity="center_horizontal"
         android:text="temp 123"/>
 
-
-    <Button
-        android:id="@+id/tryAgain"
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/sign_in_string" />
+        android:layout_height="10dp" />
 
-    <Button
-        android:id="@+id/startScreen"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/sign_up_string" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+        <Button
+            android:id="@+id/tryAgain"
+            android:layout_width="0dp"
+            android:layout_weight="40"
+            android:layout_height="wrap_content"
+            android:text="@string/start_screen" />
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"/>
+
+        <Button
+            android:id="@+id/startScreen"
+            android:layout_width="0dp"
+            android:layout_weight="40"
+            android:layout_height="wrap_content"
+            android:text="@string/try_again" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
