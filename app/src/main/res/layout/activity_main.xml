@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="#222222"
     tools:context=".MainActivity">
+
 
 
     <!-- Include other widget or layout tags here. These are considered
@@ -18,19 +20,37 @@
         android:gravity="center"
         android:padding="16dp"
         android:textSize="32sp"
+        android:background="#222222"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:text="@string/corsi_block_tapping_string" />
+    <ImageView
+        android:layout_width= "match_parent"
+        android:layout_marginTop="100px"
+        android:layout_height="300dp"
+        android:src="@drawable/blocks"
 
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="#222222"
         android:gravity="center">
 
         <Button
             android:id="@+id/beginTask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:text="@string/begin_task_string" />
+
+        <Button
+            android:id="@+id/howToPlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/tutorial_string" />
 
         <Button
             android:id="@+id/signIn"
@@ -52,12 +72,18 @@
 
         <Space
             android:layout_width="match_parent"
+            android:background="#222222"
             android:layout_height="20dp" />
 
         <TextView
             android:id="@+id/loginStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#222222"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="italic"
             android:text="TextView" />
     </LinearLayout>
 </LinearLayout>

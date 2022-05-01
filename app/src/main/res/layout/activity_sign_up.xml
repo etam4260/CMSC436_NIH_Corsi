@@ -9,6 +9,7 @@
     android:paddingTop="16dp"
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
+    android:background="#222222"
     tools:context=".MainActivity">
 
 
@@ -23,8 +24,17 @@ Include other widget or layout tags here. These are considered
         android:gravity="center"
         android:padding="16dp"
         android:textSize="32sp"
-        android:text="Register your account" />
+        android:background="#222222"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="Register" />
+    <ImageView
+        android:layout_width= "match_parent"
+        android:layout_marginTop="100px"
+        android:layout_height="300dp"
+        android:src="@drawable/block2"
 
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

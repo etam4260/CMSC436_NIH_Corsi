@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="#222222"
+
     tools:context=".Leaderboard">
 
     <TextView
@@ -15,71 +17,142 @@
         android:gravity="center"
         android:padding="16dp"
         android:textSize="32sp"
-        android:text="Leaderboard" />
+        android:background="#222222"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="Global Leaderboard" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="16dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/rank_col"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:padding="3dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:text="Rank"/>
+
+        <TextView
+            android:id="@+id/email_col"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:padding="3dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:text="Email"/>
+        <TextView
+            android:id="@+id/score_col"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:padding="3dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:text="Score"/>
+    </LinearLayout>
+
     <TextView
         android:id="@+id/top1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="1. "/>
+        android:layout_height="40dp"
+        android:padding="3dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+
+        android:text="1.    "/>
 
     <TextView
         android:id="@+id/top2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="2. "/>
+        android:layout_height="40dp"
+        android:textColor="@color/white"
+        android:padding="3dp"
+        android:textSize="10sp"
+        android:text="2.    "/>
 
     <TextView
         android:id="@+id/top3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="3. "/>
+        android:layout_height="40dp"
+        android:textColor="@color/white"
+        android:padding="3dp"
+        android:textSize="10sp"
+        android:text="3.    "/>
 
     <TextView
         android:id="@+id/top4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="4. "/>
+        android:layout_height="40dp"
+        android:padding="3dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:text="4.    "/>
 
     <TextView
         android:id="@+id/top5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="5. "/>
+        android:layout_height="40dp"
+        android:padding="3dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:text="5.    "/>
 
     <TextView
         android:id="@+id/top6"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="6. "/>
+        android:layout_height="40dp"
+        android:padding="3dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:text="6.    "/>
 
     <TextView
         android:id="@+id/top7"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="7. "/>
+        android:layout_height="40dp"
+        android:padding="3dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:text="7.    "/>
 
     <TextView
         android:id="@+id/top8"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="8. "/>
+        android:layout_height="40dp"
+        android:padding="3dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:text="8.    "/>
 
     <TextView
         android:id="@+id/top9"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="9. "/>
+        android:layout_height="40dp"
+        android:padding="3dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:text="9.    "/>
 
     <TextView
         android:id="@+id/top10"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="10. "/>
+        android:layout_height="40dp"
+        android:padding="3dp"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:text="10.    "/>
 
     <Space
         android:layout_width="match_parent"
@@ -90,12 +163,20 @@
         android:id="@+id/your_score_subtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:background="#222222"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"
         android:text="Your Score"/>
 
     <TextView
         android:id="@+id/last_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/white"
         android:text="temp val 123"/>
 
     <Space
@@ -106,23 +187,41 @@
         android:id="@+id/your_high_score_subtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:background="#222222"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"
         android:text="Your High Score"/>
 
     <TextView
         android:id="@+id/highest_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"
         android:text="temp 123"/>
 
+
+    <Button
+        android:id="@+id/tryAgain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in_string" />
+
+    <Button
+        android:id="@+id/startScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_up_string" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center">
-
-
     </LinearLayout>
 
 
-    </LinearLayout>
+</LinearLayout>

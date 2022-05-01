@@ -2,6 +2,7 @@ package com.example.corsiblocktapping
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Html
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         initializeViews()
 
         beginTaskBtn.setOnClickListener {
-            startActivity(Intent(this@MainActivity, BeginTask::class.java))
+            startActivity(Intent(this@MainActivity, PlayActivity::class.java))
         }
 
         signInBtn.setOnClickListener {

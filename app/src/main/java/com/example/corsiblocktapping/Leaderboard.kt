@@ -87,7 +87,7 @@ class Leaderboard : AppCompatActivity() {
         if (currentUser != null && currentUser.email != null) {
             DB.setHighScore(currentUser.email!!, high_scoreTV)
         } else {
-            high_scoreTV.setText("make an account to track you high score")
+            high_scoreTV.setText("Make an account to start tracking your high score!")
         }
 
         // fetch and populate leaderboard
@@ -264,7 +264,7 @@ class Leaderboard : AppCompatActivity() {
                     for (view in leaderboard) {
                         val cur_email: String = sorted_scores.getOrNull(view_index)?.email.toString()
                         val cur_score: String = sorted_scores.getOrNull(view_index)?.score.toString()
-                        view.setText("${view_index+1}. ${cur_email} ${cur_score}")
+                        view.setText("${view_index + 1}.            ${cur_email} ${cur_score}")
                         view_index ++
                     }
                     Log.i(TAG, "Updated ${view_index} leaderboard views, should be ${num_scores}")

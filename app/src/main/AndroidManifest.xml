@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CorsiBlockTapping">
         <activity
+            android:name=".PlayActivity"
+            android:exported="false" />
+        <activity
             android:name=".Leaderboard"
             android:exported="false" />
         <activity
@@ -28,8 +31,11 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
