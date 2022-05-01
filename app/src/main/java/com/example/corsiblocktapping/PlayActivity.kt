@@ -145,7 +145,11 @@ class PlayActivity : AppCompatActivity() {
                                         if(failures == 2) {
                                             Log.i(TAG, "Go to leaderboard or prompt user to try again or not")
 
-                                            val score =  mSeqLength
+                                            var score =  mSeqLength - 1
+
+                                            if(score == 2) {
+                                                score = 0
+                                            }
 
                                             startActivity(Intent(this@PlayActivity, Leaderboard::class.java).putExtra("last_score", score))
 
