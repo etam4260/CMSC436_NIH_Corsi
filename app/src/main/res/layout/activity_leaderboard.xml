@@ -217,7 +217,7 @@
             android:layout_width="0dp"
             android:layout_weight="40"
             android:layout_height="wrap_content"
-            android:text="@string/start_screen" />
+            android:text="@string/try_again" />
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -228,7 +228,7 @@
             android:layout_width="0dp"
             android:layout_weight="40"
             android:layout_height="wrap_content"
-            android:text="@string/try_again" />
+            android:text="@string/start_screen" />
 
     </LinearLayout>
 

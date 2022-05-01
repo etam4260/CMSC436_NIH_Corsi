@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.SystemClock.sleep
 import android.text.TextUtils
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -38,6 +39,9 @@ class Leaderboard : AppCompatActivity() {
     private lateinit var m9TV: TextView
     private lateinit var m10TV: TextView
 
+    private lateinit var tryAgain: Button
+    private lateinit var startScreen: Button
+
     private lateinit var last_scoreTV: TextView
     private lateinit var high_scoreTV: TextView
 
@@ -50,6 +54,13 @@ class Leaderboard : AppCompatActivity() {
 
         initializeViews()
 
+        tryAgain.setOnClickListener {
+            startActivity(Intent(this, PlayActivity::class.java))
+        }
+
+        startScreen.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
         // Initialize Firebase Auth
         auth = Firebase.auth
 
@@ -118,6 +129,10 @@ class Leaderboard : AppCompatActivity() {
         m8TV = findViewById(R.id.top8)
         m9TV = findViewById(R.id.top9)
         m10TV = findViewById(R.id.top10)
+
+        tryAgain = findViewById<Button>(R.id.tryAgain)
+        startScreen = findViewById<Button>(R.id.startScreen)
+
         Log.i(TAG, "m10tv has id ${m10TV.id}")
         mLeaderboard = arrayOf(m1TV, m2TV, m3TV, m4TV, m5TV, m6TV, m7TV, m8TV, m9TV, m10TV)
         Log.i(TAG, "mLeaderboard[0] ${mLeaderboard[0].id}")
