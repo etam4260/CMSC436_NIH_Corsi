@@ -28,6 +28,8 @@ class Leaderboard : AppCompatActivity() {
 
     // m1-10 will be stored in array for easy iterating
     private lateinit var mLeaderboard: Array<TextView>
+    private lateinit var mEmail: Array<TextView>
+    private lateinit var mScore: Array<TextView>
     private lateinit var m1TV: TextView
     private lateinit var m2TV: TextView
     private lateinit var m3TV: TextView
@@ -38,6 +40,28 @@ class Leaderboard : AppCompatActivity() {
     private lateinit var m8TV: TextView
     private lateinit var m9TV: TextView
     private lateinit var m10TV: TextView
+
+    private lateinit var m1Score: TextView
+    private lateinit var m2Score: TextView
+    private lateinit var m3Score: TextView
+    private lateinit var m4Score: TextView
+    private lateinit var m5Score: TextView
+    private lateinit var m6Score: TextView
+    private lateinit var m7Score: TextView
+    private lateinit var m8Score: TextView
+    private lateinit var m9Score: TextView
+    private lateinit var m10Score: TextView
+
+    private lateinit var m1Email: TextView
+    private lateinit var m2Email: TextView
+    private lateinit var m3Email: TextView
+    private lateinit var m4Email: TextView
+    private lateinit var m5Email: TextView
+    private lateinit var m6Email: TextView
+    private lateinit var m7Email: TextView
+    private lateinit var m8Email: TextView
+    private lateinit var m9Email: TextView
+    private lateinit var m10Email: TextView
 
     private lateinit var tryAgain: Button
     private lateinit var startScreen: Button
@@ -102,7 +126,7 @@ class Leaderboard : AppCompatActivity() {
         }
 
         // fetch and populate leaderboard
-        DB.getLeaderboard(mLeaderboard)
+        DB.getLeaderboard(mLeaderboard, mEmail, mScore)
     }
 
 // unnecessary, might remove later
@@ -130,11 +154,37 @@ class Leaderboard : AppCompatActivity() {
         m9TV = findViewById(R.id.top9)
         m10TV = findViewById(R.id.top10)
 
+
+        m1Email = findViewById(R.id.top1_email)
+        m2Email = findViewById(R.id.top2_email)
+        m3Email = findViewById(R.id.top3_email)
+        m4Email = findViewById(R.id.top4_email)
+        m5Email = findViewById(R.id.top5_email)
+        m6Email = findViewById(R.id.top6_email)
+        m7Email = findViewById(R.id.top7_email)
+        m8Email = findViewById(R.id.top8_email)
+        m9Email = findViewById(R.id.top9_email)
+        m10Email = findViewById(R.id.top10_email)
+
+        m1Score = findViewById(R.id.top1_score)
+        m2Score = findViewById(R.id.top2_score)
+        m3Score = findViewById(R.id.top3_score)
+        m4Score = findViewById(R.id.top4_score)
+        m5Score = findViewById(R.id.top5_score)
+        m6Score = findViewById(R.id.top6_score)
+        m7Score = findViewById(R.id.top7_score)
+        m8Score = findViewById(R.id.top8_score)
+        m9Score = findViewById(R.id.top9_score)
+        m10Score = findViewById(R.id.top10_score)
+
         tryAgain = findViewById<Button>(R.id.tryAgain)
         startScreen = findViewById<Button>(R.id.startScreen)
 
         Log.i(TAG, "m10tv has id ${m10TV.id}")
         mLeaderboard = arrayOf(m1TV, m2TV, m3TV, m4TV, m5TV, m6TV, m7TV, m8TV, m9TV, m10TV)
+        mEmail = arrayOf(m1Email, m2Email, m3Email, m4Email, m5Email, m6Email, m7Email, m8Email, m9Email, m10Email)
+        mScore = arrayOf(m1Score, m2Score, m3Score, m4Score, m5Score, m6Score, m7Score, m8Score, m9Score, m10Score)
+
         Log.i(TAG, "mLeaderboard[0] ${mLeaderboard[0].id}")
         Log.i(TAG, "mLeaderboard[1] ${mLeaderboard[1].id}")
     }
@@ -248,7 +298,7 @@ class Leaderboard : AppCompatActivity() {
         }
 
         // todo make this update UI
-        fun getLeaderboard(leaderboard: Array<TextView>) {
+        fun getLeaderboard(leaderboard: Array<TextView>, email: Array<TextView>, score: Array<TextView>) {
             // list to store scores
             scores = ArrayList()
 
@@ -276,12 +326,32 @@ class Leaderboard : AppCompatActivity() {
 
                     // set leaderboard TextView(s)
                     var view_index: Int = 0
+
                     for (view in leaderboard) {
                         val cur_email: String = sorted_scores.getOrNull(view_index)?.email.toString()
                         val cur_score: String = sorted_scores.getOrNull(view_index)?.score.toString()
-                        view.setText("${view_index + 1}.            ${cur_email} ${cur_score}")
+                        Log.i(TAG, "Emails: $cur_email" )
+                        view.setText("${view_index + 1}.")
                         view_index ++
                     }
+                    view_index = 0
+                    for (view in email) {
+                        val cur_email: String = sorted_scores.getOrNull(view_index)?.email.toString()
+                        val cur_score: String = sorted_scores.getOrNull(view_index)?.score.toString()
+                        Log.i(TAG, "Email: $cur_email" )
+
+                        view.setText(cur_email)
+                        view_index ++
+                    }
+                    view_index = 0
+                    for (view in score) {
+                        val cur_email: String = sorted_scores.getOrNull(view_index)?.email.toString()
+                        val cur_score: String = sorted_scores.getOrNull(view_index)?.score.toString()
+                        Log.i(TAG, "Scores: $cur_score" )
+                        view.setText(cur_score)
+                        view_index ++
+                    }
+
                     Log.i(TAG, "Updated ${view_index} leaderboard views, should be ${num_scores}")
                 }
 

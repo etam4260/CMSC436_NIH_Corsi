@@ -53,6 +53,10 @@ Include other widget or layout tags here. These are considered
                 android:textColorHint="#757575" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,6 +69,10 @@ Include other widget or layout tags here. These are considered
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,7 +81,7 @@ Include other widget or layout tags here. These are considered
                 android:id="@+id/confirm_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Confim password"
+                android:hint="Confirm password"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
