@@ -4,9 +4,16 @@
     <string name="sign_in_string">Sign In</string>
     <string name="sign_up_string">Sign Up</string>
     <string name="begin_task_string">Begin Task</string>
-    <string name="log_in_prompt_string">Log In</string>
+    <string name="log_in_prompt_string">Login</string>
     <string name="sign_out_string">Sign Out</string>
     <string name="tutorial_string">How To Play</string>
     <string name="try_again">Try Again</string>
     <string name="start_screen">Home</string>
+    <string name="prev">Back</string>
+    <string name="next">Next</string>
+    <string name="tutorial_title">How to Play</string>
+    <string name="tutorial_intro">Thanks for checking out <b>The Corsi Block Tap.</b> I\'m sure you will enjoy your stay here and learn a little bit more about this <i>commonly known psychology experiment.</i> </string>
+    <string name="tutorial_desc">The Corsi-Block Tapping task is a <b>visual-spatial memory assessment</b>. In this game, you must <u>memorize a series of blocks</u> that have been tapped by the computer and then you must tap the blocks in the same order.</string>
+
+
 </resources>

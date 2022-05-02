@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var signInBtn: Button
     private lateinit var signUpBtn: Button
     private lateinit var signOutBtn: Button
+    private lateinit var tutButton: Button
     private lateinit var loginStatusTV: TextView
     private lateinit var auth: FirebaseAuth
 
@@ -45,6 +46,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, SignUp::class.java))
         }
 
+        tutButton.setOnClickListener {
+            startActivity(Intent(this@MainActivity, TutorialActivity::class.java))
+        }
         signOutBtn.setOnClickListener {
             auth.signOut()
             onStart()
@@ -96,5 +100,6 @@ class MainActivity : AppCompatActivity() {
         signUpBtn = findViewById(R.id.signUp)
         signOutBtn = findViewById(R.id.signOut)
         loginStatusTV = findViewById(R.id.loginStatus)
+        tutButton = findViewById(R.id.howToPlay)
     }
 }
