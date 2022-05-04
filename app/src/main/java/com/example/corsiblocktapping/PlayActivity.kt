@@ -126,7 +126,7 @@ class PlayActivity : AppCompatActivity() {
 
                                         val success_messages = arrayOf("You got it!", "Another one!", "Wow, you are on fire.", "You are a memory monster", "Great job!", "Way to go!")
 
-                                        val rand_ind = (0..6).random()
+                                        val rand_ind = (0..(success_messages.size-1)).random()
 
                                         val toast = Toast.makeText(this@PlayActivity, Html.fromHtml("<font color='#000000' >" + success_messages[rand_ind]+ "</font>"), Toast.LENGTH_LONG)
 
