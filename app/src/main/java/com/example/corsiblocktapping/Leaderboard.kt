@@ -22,7 +22,7 @@ class Leaderboard : AppCompatActivity() {
     private var DB = FirebaseRealTimeDB()
     private lateinit var auth: FirebaseAuth
 
-    // m1-10 will be stored in arrays for easy iterating
+    // leaderboard rows m1-10 will be stored in arrays for easy iterating
     private lateinit var mLeaderboard: Array<TextView>
     private lateinit var mEmail: Array<TextView>
     private lateinit var mScore: Array<TextView>
@@ -115,7 +115,7 @@ class Leaderboard : AppCompatActivity() {
         // set last score
         last_scoreTV.setText("${last_score}")
 
-        // set high score
+        // set high score text view
         if (currentUser != null && currentUser.email != null) {
             DB.setHighScore(currentUser.email!!, high_scoreTV)
         } else {
@@ -218,7 +218,7 @@ class Leaderboard : AppCompatActivity() {
                             if (curScore!!.email == email) {    // email matches
                                 if (curScore!!.score < score) { // new score is greater
 
-                                    // get referece to Score to be updated
+                                    // get reference to Score to be updated
                                     val old_score = FirebaseDatabase.getInstance()
                                         .getReference("high_scores").child(curScore.scoreId)
 
@@ -232,7 +232,7 @@ class Leaderboard : AppCompatActivity() {
                             }
                         }
 
-                        // if no match found, create new highscore
+                        // if no match found, create new high score
                         var id = databaseHighScores.push().key.toString()
                         val high_score = Score(id, email, score)
                         databaseHighScores.child(id).setValue(high_score)
@@ -246,7 +246,7 @@ class Leaderboard : AppCompatActivity() {
             }
         }
 
-        // returns high score associated with email arg, or -1 if not found
+        // fetch current user's high score from Firebase RTDB and write it to high_scoreTV
         fun setHighScore(email : String, high_scoreTV: TextView) {
             var high_score: Int = -1
             var lock = Object()

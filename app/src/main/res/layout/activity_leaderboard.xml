@@ -427,10 +427,6 @@
         android:textColor="@color/white"
         android:text=""/>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="16dp" />
-
     <TextView
         android:id="@+id/your_high_score_subtitle"
         android:layout_width="match_parent"

@@ -23,6 +23,10 @@ class TutorialActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tutorial)
 
+        // hide default title bar
+        this.supportActionBar!!.hide()
+
+
         top_descriptions = arrayOf("Thanks for checking out The Corsi Block Tap. I\\'m sure you will enjoy your stay here and learn a little bit more about this commonly known psychology experiment.",
             "When you first click play you will be presented with 9 white boxes. One of the 9 boxes will get highlighted yellow at a time with a total of boxes highlighted equal to the number presented at the bottom of the screen. The game starts at 3.",
             "An example of a highlighted box is shown above. Make sure you catch a glimpse as they go by fast.",
