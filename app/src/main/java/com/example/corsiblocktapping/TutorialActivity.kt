@@ -17,7 +17,7 @@ class TutorialActivity : AppCompatActivity() {
     private lateinit var top_desc_view: TextView
     private lateinit var next: TextView
     private lateinit var prev: TextView
-    private var current_screen: Int = 0
+    private var currentScreen: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,6 @@ class TutorialActivity : AppCompatActivity() {
 
         // hide default title bar
         this.supportActionBar!!.hide()
-
 
         top_descriptions = arrayOf("Thanks for checking out The Corsi Block Tap. I\\'m sure you will enjoy your stay here and learn a little bit more about this commonly known psychology experiment.",
             "When you first click play you will be presented with 9 white boxes. One of the 9 boxes will get highlighted yellow at a time with a total of boxes highlighted equal to the number presented at the bottom of the screen. The game starts at 3.",
@@ -48,43 +47,44 @@ class TutorialActivity : AppCompatActivity() {
         bottom_desc_view = findViewById(R.id.description)
         top_desc_view = findViewById(R.id.intro_descrip)
 
-        current_screen = 0
+        currentScreen = 0
 
         next.setOnClickListener {
 
-            current_screen = current_screen + 1
-            Log.i("Next desc", current_screen.toString())
-            this.nextDescription(current_screen)
-
+            currentScreen += 1
+            Log.i("The current screen", currentScreen.toString())
+            this.nextDescription(currentScreen)
         }
 
         prev.setOnClickListener {
-            current_screen = current_screen - 1
-            this.nextDescription(current_screen)
+            currentScreen -= 1
+            this.nextDescription(currentScreen)
         }
     }
 
     private fun nextDescription(current: Int) {
-        Log.i("Next desc", "Next desc")
-        Log.i("Next desc", current.toString())
+        Log.i("The current screen index is: ", current.toString())
+
         if (current < 0) {
             // Just go back to main page
-            current_screen = 0
+            currentScreen = 0
             startActivity(Intent(this, MainActivity::class.java))
 
         } else if(current == 5) {
-            current_screen = 0
+            Log.i("Stage: ", "Ending the tutorial.")
+            currentScreen = 0
             startActivity(Intent(this, MainActivity::class.java))
         } else {
+            Log.i("Stage: ", "Changing to next page.")
             top_desc_view.text = top_descriptions[current]
             bottom_desc_view.text = bottom_descriptions[current]
-            if(current == 0) {
+
+            if (current == 0) {
                 images.setImageResource(R.drawable.block3)
             } else if(current == 1) {
                 images.setImageResource(R.drawable.game_demo)
             } else if(current == 2) {
                 images.setImageResource(R.drawable.highlightsquare)
-
             } else if(current == 3) {
                 images.setImageResource(R.drawable.leadboard_demo)
             } else if(current == 4) {

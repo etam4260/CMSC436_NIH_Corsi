@@ -3,6 +3,7 @@ package com.example.corsiblocktapping
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -50,6 +51,10 @@ class SignUp : AppCompatActivity() {
         val password: String = passwordTV.text.toString()
         val confirmPassword: String = confirmPasswordTV.text.toString()
 
+        Log.i("Email:", email)
+        Log.i("Password:", password)
+        Log.i("Confirm:", confirmPassword)
+
         // validate inputs
         val emailRegex = Regex("(?:[a-z0-9!#\$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#\$%&'" +
                 "*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x" +
@@ -64,6 +69,9 @@ class SignUp : AppCompatActivity() {
                 && !confirmPassword.isNullOrEmpty() && (password == confirmPassword)
                 && validEmail && password.length >= 6
 
+        Log.i("Valid Email?", validEmail.toString())
+        Log.i("Valid Inputs?", validInputs.toString())
+
         if (validInputs) {
             // todo register user via Firebase
             val register = mAuth!!.createUserWithEmailAndPassword(email, password)
@@ -72,16 +80,18 @@ class SignUp : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // toast confirmation
                     Toast.makeText(applicationContext, "Account created successfully", Toast.LENGTH_LONG).show()
+
+                    Log.i("Valid Email?", task.isSuccessful.toString())
                     // return to main menu
                     onBackPressed()
                 } else {
+                    Log.i("Valid Email?", task.isSuccessful.toString())
                     errorTV.setVisibility(View.VISIBLE)
                     errorTV.setText("Failed to create account")
                 }
             }
 
         } else {
-
             // display message in error textview
             errorTV.setVisibility(View.VISIBLE)
             var errorText: String = ""

@@ -82,12 +82,16 @@ class Leaderboard : AppCompatActivity() {
         startScreen.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
+
         // Initialize Firebase Auth
         auth = Firebase.auth
+
 
         // get email for current user
         val email: String
         val currentUser = auth.currentUser
+
+
         if (currentUser != null) {
             if (currentUser.email != null)
                 email = currentUser.email.toString()
@@ -96,6 +100,7 @@ class Leaderboard : AppCompatActivity() {
         } else {
             email = "Guest"
         }
+
         Log.i(TAG, "email is $email")
 
         // get score from most recent game
@@ -278,6 +283,8 @@ class Leaderboard : AppCompatActivity() {
         }
 
         fun getLeaderboard(leaderboard: Array<TextView>, email: Array<TextView>, score: Array<TextView>) {
+            Log.i(Leaderboard.TAG, "fetching the leaderboard")
+
             // list to store scores
             scores = ArrayList()
 

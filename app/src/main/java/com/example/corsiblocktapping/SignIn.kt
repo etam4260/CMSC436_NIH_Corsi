@@ -3,6 +3,7 @@ package com.example.corsiblocktapping
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -34,6 +35,7 @@ class SignIn : AppCompatActivity() {
         super.onStart()
         // if isSignedIn already, return to MainActivity
         if (mAuth!!.currentUser != null) {
+            Log.i("Current user:", mAuth!!.currentUser.toString())
             onBackPressed()
         }
     }
@@ -43,16 +45,21 @@ class SignIn : AppCompatActivity() {
         val email: String = emailTV.text.toString()
         val password: String = passwordTV.text.toString()
 
+        Log.i("The email: ", email.toString())
+        Log.i("The password: ", password.toString())
+
         // auth user via Firebase
         val callback = mAuth!!.signInWithEmailAndPassword(email, password)
         callback.addOnCompleteListener { task ->
             if (task.isSuccessful) {
+                Log.i("Login Status: ", "Login was successful!")
                 // toast 'logged in as <email>'
                 val email2: String = mAuth!!.currentUser!!.email.toString()
                 Toast.makeText(applicationContext, "Logged in as $email2", Toast.LENGTH_LONG).show()
                 // return to main menu
                 onBackPressed()
             } else {
+                Log.i("Login Status: ", "Login was NOT successful!")
                 // toast failure
                 Toast.makeText(applicationContext, "Invalid credentials, try again",
                     Toast.LENGTH_LONG).show()

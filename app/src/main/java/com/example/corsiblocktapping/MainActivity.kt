@@ -3,6 +3,7 @@ package com.example.corsiblocktapping
 import android.content.Intent
 import android.os.Bundle
 import android.text.Html
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -69,8 +70,10 @@ class MainActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         if (currentUser != null) {
             val user = currentUser.email
+            Log.i("Current user:", user.toString())
             loginStatusTV.setText("Currently logged in as $user")
         } else {
+            Log.i("Current user:", "Guest")
             loginStatusTV.setText("Playing as Guest")
         }
 
@@ -78,6 +81,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayBtns() {
         val currentUser = auth.currentUser
+        Log.i("Current user:", auth.currentUser.toString())
 
         // if not signed in
         if (currentUser != null) {

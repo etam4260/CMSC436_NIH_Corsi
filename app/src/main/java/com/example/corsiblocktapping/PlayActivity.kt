@@ -65,11 +65,14 @@ class PlayActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
+        Log.i(PlayActivity.TAG,"Resuming the activity")
         super.onResume()
         setupGestureDetector()
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
+        Log.i(PlayActivity.TAG,"The window focus has changed")
+
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) {
             mDisplayWidth = mFrame.width
@@ -86,6 +89,7 @@ class PlayActivity : AppCompatActivity() {
     }
 
     private fun makeSquares() {
+        Log.i(PlayActivity.TAG,"Create the 9 squares on the screen.")
         for(i in -1..1) {
             for(j in -1..1) {
                 val sv = SquareView(applicationContext,
@@ -99,12 +103,16 @@ class PlayActivity : AppCompatActivity() {
     }
 
     private fun removeSquares() {
+        Log.i(PlayActivity.TAG,"Remove squares on the screen.")
         while (mFrame.childCount > 0) {
             (mFrame.getChildAt(0) as SquareView).stop()
         }
     }
 
     private fun setupGestureDetector() {
+        Log.i(PlayActivity.TAG,"Setup the gesture detector.")
+
+
         mGestureDetector = GestureDetector(this,
             object : GestureDetector.SimpleOnGestureListener() {
                 override fun onSingleTapConfirmed(event: MotionEvent): Boolean {
@@ -156,6 +164,7 @@ class PlayActivity : AppCompatActivity() {
                                         } else {
                                             // Redo the same number of blocks again...
                                             val toast = Toast.makeText(this@PlayActivity,   Html.fromHtml("<font color='#FF0000' >" + "One more try!"+ "</font>"), Toast.LENGTH_LONG)
+                                            Log.i(PlayActivity.TAG,"Redo the same tasks again...")
 
                                             toast.show()
 
@@ -186,6 +195,7 @@ class PlayActivity : AppCompatActivity() {
         mShowingWaitFrames = frames
         mSequence = ArrayList<Int>()
         mSequence.add(rand.nextInt(9))
+
         for (i in 1..mSeqLength - 1) {
             val x = rand.nextInt(8) //avoids repeats
             if(x == mSequence.last()) {
@@ -194,6 +204,7 @@ class PlayActivity : AppCompatActivity() {
                 mSequence.add(x)
             }
         }
+
         Log.i(TAG, mSeqLength.toString())
 
         val executor = Executors
@@ -217,6 +228,7 @@ class PlayActivity : AppCompatActivity() {
     }
 
     private fun stop() {
+        Log.i(PlayActivity.TAG,"Stopping")
         if (null != mMoverFuture) {
             if (!mMoverFuture!!.isDone) {
                 mMoverFuture!!.cancel(true)
@@ -225,6 +237,7 @@ class PlayActivity : AppCompatActivity() {
     }
 
     inner class SquareView internal constructor(context: Context, x: Float, y: Float) :
+
         View(context) {
         private val mPainter = Paint()
         private var mMoverFuture: ScheduledFuture<*>? = null
@@ -246,10 +259,14 @@ class PlayActivity : AppCompatActivity() {
         }
 
         private fun createScaledBitmap() {
+
+            Log.i(TAG, "Creating scaled bitmap")
+
             this.mScaledBitmap = Bitmap.createScaledBitmap(
                 mBitmap,
                 mScaledBitmapWidth, mScaledBitmapWidth, false
             )
+
             this.mScaledHighlightBitmap = Bitmap.createScaledBitmap(
                 mHighlightBitmap,
                 mScaledBitmapWidth, mScaledBitmapWidth, false
@@ -268,14 +285,19 @@ class PlayActivity : AppCompatActivity() {
         fun intersects(x: Float, y: Float): Boolean {
             val xDist = x - (mXPos + mRadius)
             val yDist = y - (mYPos + mRadius)
+            Log.i(TAG, (abs(xDist) <= mRadius && abs(yDist) <= mRadius).toString())
+
             return abs(xDist) <= mRadius && abs(yDist) <= mRadius
         }
 
         internal fun stop() {
+
             if (null != mMoverFuture) {
+
                 if (!mMoverFuture!!.isDone) {
                     mMoverFuture!!.cancel(true)
                 }
+
                 mFrame.post {
                     mFrame.removeView(this)
                     Log.i(TAG, "Square removed from view!")
@@ -285,14 +307,16 @@ class PlayActivity : AppCompatActivity() {
 
         @Synchronized
         override fun onDraw(canvas: Canvas) {
+
             canvas.save()
             if(highlightFrames > 0) {
+
                 canvas.drawBitmap(mScaledHighlightBitmap!!, mXPos, mYPos, mPainter)
                 highlightFrames--
-                //Log.i(TAG, "hl-- $highlightFrames")
+
             } else {
                 canvas.drawBitmap(mScaledBitmap!!, mXPos, mYPos, mPainter)
-                //Log.i(TAG, "hl $highlightFrames")
+
             }
             canvas.restore()
         }
