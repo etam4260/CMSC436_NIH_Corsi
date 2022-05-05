@@ -80,7 +80,7 @@ class PlayActivity : AppCompatActivity() {
             makeSquares()
             if(mGameState == INITSTATE) {
                 mGameState == SHOWING
-                start(20)
+                start(30)
             }
         }
     }
@@ -124,7 +124,7 @@ class PlayActivity : AppCompatActivity() {
                                         mSeqLength++
                                         mGameState = SHOWING
 
-                                        val success_messages = arrayOf("You got it!", "Another one!", "Wow, you are on fire.", "You are a memory monster", "Great job!", "Way to go!")
+                                        val success_messages = arrayOf("You got it!", "Another one!", "Wow, you are on fire.", "You're a memory monster!", "Great job!", "Way to go!", "Keep it up!")
 
                                         val rand_ind = (0..(success_messages.size-1)).random()
 
