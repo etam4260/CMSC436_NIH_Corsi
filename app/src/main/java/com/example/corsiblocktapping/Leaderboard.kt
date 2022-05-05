@@ -3,19 +3,15 @@ package com.example.corsiblocktapping
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.SystemClock.sleep
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-import org.w3c.dom.Text
 
 class Leaderboard : AppCompatActivity() {
 
@@ -26,20 +22,21 @@ class Leaderboard : AppCompatActivity() {
     private var DB = FirebaseRealTimeDB()
     private lateinit var auth: FirebaseAuth
 
-    // m1-10 will be stored in array for easy iterating
+    // m1-10 will be stored in arrays for easy iterating
     private lateinit var mLeaderboard: Array<TextView>
     private lateinit var mEmail: Array<TextView>
     private lateinit var mScore: Array<TextView>
-    private lateinit var m1TV: TextView
-    private lateinit var m2TV: TextView
-    private lateinit var m3TV: TextView
-    private lateinit var m4TV: TextView
-    private lateinit var m5TV: TextView
-    private lateinit var m6TV: TextView
-    private lateinit var m7TV: TextView
-    private lateinit var m8TV: TextView
-    private lateinit var m9TV: TextView
-    private lateinit var m10TV: TextView
+
+    private lateinit var m1Rank: TextView
+    private lateinit var m2Rank: TextView
+    private lateinit var m3Rank: TextView
+    private lateinit var m4Rank: TextView
+    private lateinit var m5Rank: TextView
+    private lateinit var m6Rank: TextView
+    private lateinit var m7Rank: TextView
+    private lateinit var m8Rank: TextView
+    private lateinit var m9Rank: TextView
+    private lateinit var m10Rank: TextView
 
     private lateinit var m1Score: TextView
     private lateinit var m2Score: TextView
@@ -129,31 +126,20 @@ class Leaderboard : AppCompatActivity() {
         DB.getLeaderboard(mLeaderboard, mEmail, mScore)
     }
 
-// unnecessary, might remove later
-//    override fun onStart() {
-//        super.onStart()
-//
-//        // todo add event listener for updates to leaderboard to update UI
-////        databaseAuthors.addValueEventListener(object : ValueEventListener {
-////            override fun onDataChange(dataSnapshot: DataSnapshot) {
-//    }
-
     private fun initializeViews() {
         high_scoreTV = findViewById(R.id.highest_score)
         last_scoreTV = findViewById(R.id.last_score)
-        m1TV = findViewById(R.id.top1)
-        Log.i(TAG, "m1tv has id ${m1TV.id}")
-        m2TV = findViewById(R.id.top2)
-        Log.i(TAG, "m2tv has id ${m2TV.id}")
-        m3TV = findViewById(R.id.top3)
-        m4TV = findViewById(R.id.top4)
-        m5TV = findViewById(R.id.top5)
-        m6TV = findViewById(R.id.top6)
-        m7TV = findViewById(R.id.top7)
-        m8TV = findViewById(R.id.top8)
-        m9TV = findViewById(R.id.top9)
-        m10TV = findViewById(R.id.top10)
 
+        m1Rank = findViewById(R.id.top1_rank)
+        m2Rank = findViewById(R.id.top2_rank)
+        m3Rank = findViewById(R.id.top3_rank)
+        m4Rank = findViewById(R.id.top4_rank)
+        m5Rank = findViewById(R.id.top5_rank)
+        m6Rank = findViewById(R.id.top6_rank)
+        m7Rank = findViewById(R.id.top7_rank)
+        m8Rank = findViewById(R.id.top8_rank)
+        m9Rank = findViewById(R.id.top9_rank)
+        m10Rank = findViewById(R.id.top10_rank)
 
         m1Email = findViewById(R.id.top1_email)
         m2Email = findViewById(R.id.top2_email)
@@ -180,22 +166,16 @@ class Leaderboard : AppCompatActivity() {
         tryAgain = findViewById<Button>(R.id.tryAgain)
         startScreen = findViewById<Button>(R.id.startScreen)
 
-        Log.i(TAG, "m10tv has id ${m10TV.id}")
-        mLeaderboard = arrayOf(m1TV, m2TV, m3TV, m4TV, m5TV, m6TV, m7TV, m8TV, m9TV, m10TV)
+        mLeaderboard = arrayOf(m1Rank, m2Rank, m3Rank, m4Rank, m5Rank, m6Rank, m7Rank, m8Rank, m9Rank, m10Rank)
         mEmail = arrayOf(m1Email, m2Email, m3Email, m4Email, m5Email, m6Email, m7Email, m8Email, m9Email, m10Email)
         mScore = arrayOf(m1Score, m2Score, m3Score, m4Score, m5Score, m6Score, m7Score, m8Score, m9Score, m10Score)
-
-        Log.i(TAG, "mLeaderboard[0] ${mLeaderboard[0].id}")
-        Log.i(TAG, "mLeaderboard[1] ${mLeaderboard[1].id}")
     }
-
 
     private class FirebaseRealTimeDB {
 
         companion object {
             private const val TAG = "FirebaseRealTimeDB"
         }
-        val database = Firebase.database
 
         // store a list of all scores in Firebase database
         private lateinit var scores: MutableList<Score>
@@ -297,7 +277,6 @@ class Leaderboard : AppCompatActivity() {
             })
         }
 
-        // todo make this update UI
         fun getLeaderboard(leaderboard: Array<TextView>, email: Array<TextView>, score: Array<TextView>) {
             // list to store scores
             scores = ArrayList()
@@ -320,39 +299,38 @@ class Leaderboard : AppCompatActivity() {
                         //Log.i("FirebaseRealtimeDB", "Got email ${cur_score!!.email} score ${cur_score!!.score}")
                         scores!!.add(cur_score!!)
                     }
-                    Log.i(TAG, "There were ${num_scores} scores")
+                    Log.i(TAG, "There were ${num_scores} Scores")
                     val sorted_scores = scores.sortedByDescending { it.score }
-                    Log.i(TAG, "Here are stored scores: ${sorted_scores.toString()}" )
+                    Log.i(TAG, "Here are stored Scores: ${sorted_scores.toString()}" )
 
                     // set leaderboard TextView(s)
                     var view_index: Int = 0
 
-                    for (view in leaderboard) {
-                        val cur_email: String = sorted_scores.getOrNull(view_index)?.email.toString()
-                        val cur_score: String = sorted_scores.getOrNull(view_index)?.score.toString()
-                        Log.i(TAG, "Emails: $cur_email" )
-                        view.setText("${view_index + 1}.")
-                        view_index ++
-                    }
-                    view_index = 0
-                    for (view in email) {
-                        val cur_email: String = sorted_scores.getOrNull(view_index)?.email.toString()
-                        val cur_score: String = sorted_scores.getOrNull(view_index)?.score.toString()
-                        Log.i(TAG, "Email: $cur_email" )
+                    while (view_index < 10) {
+                        val curScore: Score? = sorted_scores.getOrNull(view_index)
 
-                        view.setText(cur_email)
-                        view_index ++
-                    }
-                    view_index = 0
-                    for (view in score) {
-                        val cur_email: String = sorted_scores.getOrNull(view_index)?.email.toString()
-                        val cur_score: String = sorted_scores.getOrNull(view_index)?.score.toString()
-                        Log.i(TAG, "Scores: $cur_score" )
-                        view.setText(cur_score)
-                        view_index ++
+                        // set rank view
+                        leaderboard[view_index].setText("${view_index + 1}.")
+
+                        // set email view
+                        var cur_email: String = ""
+                        if (curScore != null)
+                            cur_email = curScore.email
+                        email[view_index].setText(cur_email)
+
+                        // set score view
+                        var cur_score: String = ""
+                        if (curScore != null)
+                            cur_score = curScore.score.toString()
+                        score[view_index].setText(cur_score)
+
+                        view_index++
+                        //Log.i(TAG, "Rank: ${view_index}")
+                        //Log.i(TAG, "Email: $cur_email" )
+                        //Log.i(TAG, "Scores: $cur_score" )
                     }
 
-                    Log.i(TAG, "Updated ${view_index} leaderboard views, should be ${num_scores}")
+                    Log.i(TAG, "Updated ${view_index} rows of leaderboard")
                 }
 
                 override fun onCancelled(error: DatabaseError) {

@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/top1"
+            android:id="@+id/top1_rank"
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="40dp"
@@ -104,7 +104,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/top2"
+            android:id="@+id/top2_rank"
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="40dp"
@@ -137,7 +137,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/top3"
+            android:id="@+id/top3_rank"
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="40dp"
@@ -171,7 +171,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/top4"
+            android:id="@+id/top4_rank"
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="40dp"
@@ -204,7 +204,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/top5"
+            android:id="@+id/top5_rank"
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="40dp"
@@ -238,7 +238,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/top6"
+            android:id="@+id/top6_rank"
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="40dp"
@@ -272,7 +272,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/top7"
+            android:id="@+id/top7_rank"
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="40dp"
@@ -306,7 +306,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/top8"
+            android:id="@+id/top8_rank"
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="40dp"
@@ -341,7 +341,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/top9"
+            android:id="@+id/top9_rank"
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="40dp"
@@ -375,7 +375,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/top10"
+            android:id="@+id/top10_rank"
             android:layout_width="0dp"
             android:layout_weight="5"
             android:layout_height="40dp"
@@ -407,7 +407,6 @@
         android:layout_width="match_parent"
         android:layout_height="16dp" />
 
-    // todo center this
     <TextView
         android:id="@+id/your_score_subtitle"
         android:layout_width="match_parent"
