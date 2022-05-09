@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1081197607626",
+    "project_id": "corsi-aca7e",
+    "storage_bucket": "corsi-aca7e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081197607626:android:09e6d999cb69c3a95d5233",
+        "android_client_info": {
+          "package_name": "com.example.corsi_block"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081197607626-8914rdd0jdnhja7dvqn540j2q99r3ene.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9ULL8Fdrekx1-7NtZGk0YLP71A6iHQI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081197607626-8914rdd0jdnhja7dvqn540j2q99r3ene.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
